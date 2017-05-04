@@ -30,27 +30,30 @@ AppAsset::register($this);
         'brandLabel' => 'My Company',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-inverse',
         ],
     ]);
+
+    $is_login = !Yii::$app->user->isGuest;
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
+            ['label' => '首页', 'url' => ['/site/index']],
+            ['label' => '关于', 'url' => ['/site/about']],
+            ['label' => '联系', 'url' => ['/site/contact']],
+            $is_login ? (
                 '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
+                . Html::beginForm(['/user/security/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    '注销 (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+            ) : (
+            ['label' => '登录', 'url' => ['/user/security/login']]
+            ),
+            $is_login ? ('') : ['label' => '注册', 'url' => ['/user/registration']],
         ],
     ]);
     NavBar::end();
