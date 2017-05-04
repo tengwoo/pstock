@@ -22,6 +22,7 @@ $config = [
         ],
         'db' => $db,
     ],
+    'modules' => require(__DIR__ . '/modules.php'),
     'params' => $params,
     /*
     'controllerMap' => [

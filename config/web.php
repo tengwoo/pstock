@@ -3,7 +3,8 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
-    'id' => 'basic',
+    'id' => 'pstock',
+    'language' => 'zh-CN',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
@@ -45,11 +46,7 @@ $config = [
             ],
         ],
     ],
-    'modules' => [
-        'user' => [
-            'class' => 'dektrium\user\Module',
-        ],
-    ],
+    'modules' => require(__DIR__ . '/modules.php'),
     'params' => $params,
 ];
 
