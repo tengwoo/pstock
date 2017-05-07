@@ -5,6 +5,7 @@ $params = require(__DIR__ . '/params.php');
 $config = [
     'id' => 'pstock',
     'language' => 'zh-CN',
+    'name' => 'STOCK PRO',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [

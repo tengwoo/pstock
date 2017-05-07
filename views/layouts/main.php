@@ -4,8 +4,6 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
@@ -25,39 +23,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse',
-        ],
-    ]);
-
-    $is_login = !Yii::$app->user->isGuest;
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => '首页', 'url' => ['/site/index']],
-            ['label' => '关于', 'url' => ['/site/about']],
-            ['label' => '联系', 'url' => ['/site/contact']],
-            $is_login ? (
-                '<li>'
-                . Html::beginForm(['/user/security/logout'], 'post')
-                . Html::submitButton(
-                    '注销 (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            ) : (
-            ['label' => '登录', 'url' => ['/user/security/login']]
-            ),
-            $is_login ? ('') : ['label' => '注册', 'url' => ['/user/registration']],
-        ],
-    ]);
-    NavBar::end();
-    ?>
+    <?= $this->render('//common/_nav') ?>
 
     <div class="container">
         <?= Breadcrumbs::widget([
@@ -69,9 +35,9 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; <?= Yii::$app->name ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"></p>
     </div>
 </footer>
 
