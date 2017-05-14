@@ -12,10 +12,10 @@ return [
         'admins' => ['superman',],
         'layout' => '@app/modules/m/views/layouts/mobile',
 
-//        'controllerMap' => [
-//            'profile' => [
-//                'class' => 'app\modules\m\controllers\user\ProfileController',
-//            ],
+        'controllerMap' => [
+            'profile' => [
+                'class' => 'app\modules\m\controllers\user\ProfileController',
+            ],
 //            'recovery' => [
 //                'class' => 'app\modules\m\controllers\user\RecoveryController',
 //            ],
@@ -28,7 +28,7 @@ return [
 //            'setting' => [
 //                'class' => 'app\modules\m\controllers\user\SettingController',
 //            ],
-//        ],
+        ],
     ],
 
     'm' => [ //移动版本界面

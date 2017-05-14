@@ -39,7 +39,7 @@ MobileAppAsset::register($this);
 <footer class="footer navbar navbar-default navbar-fixed-bottom">
     <div class="container">
         <div class="row">
-            <div class="col-xs-3 col-sm-3 footer-nav-item active" data-role="default">
+            <div class="col-xs-3 col-sm-3 footer-nav-item active" data-role="default/index">
                 <a href="<?= Url::to(['/m/default/index']) ?>"><em class="glyphicon glyphicon-home"></em>
                     <span>首页</span></a></div>
             <div class="col-xs-3 col-sm-3 footer-nav-item" data-role="trade">
@@ -49,13 +49,13 @@ MobileAppAsset::register($this);
                 <a href="<?= Url::to(['/m/default/contact']) ?>"><em class="glyphicon glyphicon-question-sign"></em>
                     <span>咨询</span></a></div>
             <div class="col-xs-3 col-sm-3 footer-nav-item" data-role="user">
-                <a href="<?= Url::to(['/user/settings/account']) ?>"><em class="glyphicon glyphicon-user"></em>
+                <a href="<?= Url::to(['/user/profile/']) ?>"><em class="glyphicon glyphicon-user"></em>
                     <span>我</span></a></div>
         </div>
 
         <script>
             (function(){
-                var r = '<?= $this->context->getUniqueId() ?>';
+                var r = '<?= $this->context->getRoute() ?>';
                 $('.footer-nav-item').each(function(){
                     if( r.indexOf($(this).attr('data-role')) > -1 ) {
                         $(this).addClass('active').siblings().removeClass('active');

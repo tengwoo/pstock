@@ -4,6 +4,7 @@ namespace app\modules\m\controllers;
 
 class TradeController extends \yii\web\Controller
 {
+
     public function actionFutures()
     {
         return $this->render('futures');
@@ -11,7 +12,8 @@ class TradeController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->redirect(['stock']);
+//        return $this->render('index');
     }
 
     public function actionStock()
