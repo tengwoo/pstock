@@ -5,7 +5,7 @@ $params = require(__DIR__ . '/params.php');
 $config = [
     'id' => 'pstock',
     'language' => 'zh-CN',
-    'name' => 'STOCK PRO',
+    'name' => '牛逼股票系统',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
@@ -49,6 +49,13 @@ $config = [
             'rules' => [
             ],
         ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@app/views/user'
+                ],
+            ],
+        ],
     ],
     'modules' => require(__DIR__ . '/modules.php'),
     'params' => $params,
@@ -56,12 +63,12 @@ $config = [
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = [
-        'class' => 'yii\debug\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
-    ];
+//    $config['bootstrap'][] = 'debug';
+//    $config['modules']['debug'] = [
+//        'class' => 'yii\debug\Module',
+//        // uncomment the following to add your IP if you are not connecting from localhost.
+//        //'allowedIPs' => ['127.0.0.1', '::1'],
+//    ];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [

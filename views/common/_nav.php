@@ -8,7 +8,7 @@ NavBar::begin([
     'brandLabel' => Yii::$app->name,
     'brandUrl' => Yii::$app->homeUrl,
     'options' => [
-        'class' => 'navbar-inverse navbar-fix-up',
+        'class' => '',
     ],
 ]);
 
@@ -17,7 +17,7 @@ echo Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-right'],
     'items' => [
         ['label' => '首页', 'url' => ['/site/index']],
-//        ['label' => '关于', 'url' => ['/site/about']],
+        ['label' => '股票操盘', 'url' => ['/hall/stock']],
 //        ['label' => '联系', 'url' => ['/site/contact']],
         $is_login ? (
             '<li>'
