@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "order_history".
  *
  * @property integer $id
+ * @property string $order_sn
  * @property integer $user_id
  * @property integer $stock_id
  * @property string $stock_name
@@ -24,6 +25,10 @@ use Yii;
  * @property string $amount_coupon
  * @property string $amount_total
  * @property string $amount_paid
+ * @property integer $is_checkout
+ * @property string $checkout_price
+ * @property string $checkout_desc
+ * @property integer $is_forward
  */
 class OrderHistory extends \yii\db\ActiveRecord
 {
@@ -41,10 +46,13 @@ class OrderHistory extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'stock_id', 'type', 'state', 'times', 'count'], 'integer'],
+            [['user_id', 'stock_id', 'type', 'state', 'times', 'count', 'is_checkout', 'is_forward'], 'integer'],
             [['time_created', 'time_finished'], 'safe'],
-            [['price', 'amount_deposit', 'amount_tax', 'amount_coupon', 'amount_total', 'amount_paid'], 'number'],
+            [['price', 'amount_deposit', 'amount_tax', 'amount_coupon', 'amount_total', 'amount_paid', 'checkout_price'], 'number'],
+            [['order_sn'], 'string', 'max' => 16],
             [['stock_name', 'stock_code'], 'string', 'max' => 32],
+            [['checkout_desc'], 'string', 'max' => 255],
+            [['order_sn'], 'unique'],
         ];
     }
 
@@ -55,6 +63,7 @@ class OrderHistory extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'order_sn' => 'Order Sn',
             'user_id' => 'User ID',
             'stock_id' => 'Stock ID',
             'stock_name' => 'Stock Name',
@@ -71,6 +80,10 @@ class OrderHistory extends \yii\db\ActiveRecord
             'amount_coupon' => 'Amount Coupon',
             'amount_total' => 'Amount Total',
             'amount_paid' => 'Amount Paid',
+            'is_checkout' => 'Is Checkout',
+            'checkout_price' => 'Checkout Price',
+            'checkout_desc' => 'Checkout Desc',
+            'is_forward' => 'Is Forward',
         ];
     }
 

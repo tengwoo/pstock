@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "order".
  *
  * @property integer $id
+ * @property string $order_sn
  * @property integer $user_id
  * @property integer $stock_id
  * @property string $stock_name
@@ -24,6 +25,7 @@ use Yii;
  * @property string $amount_coupon
  * @property string $amount_total
  * @property string $amount_paid
+ * @property integer $is_forward
  */
 class Order extends \yii\db\ActiveRecord
 {
@@ -41,10 +43,12 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'stock_id', 'type', 'state', 'times', 'count'], 'integer'],
+            [['user_id', 'stock_id', 'type', 'state', 'times', 'count', 'is_forward'], 'integer'],
             [['time_created', 'time_finished'], 'safe'],
             [['price', 'amount_deposit', 'amount_tax', 'amount_coupon', 'amount_total', 'amount_paid'], 'number'],
+            [['order_sn'], 'string', 'max' => 16],
             [['stock_name', 'stock_code'], 'string', 'max' => 32],
+            [['order_sn'], 'unique'],
         ];
     }
 
@@ -55,6 +59,7 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'order_sn' => 'Order Sn',
             'user_id' => 'User ID',
             'stock_id' => 'Stock ID',
             'stock_name' => 'Stock Name',
@@ -71,6 +76,7 @@ class Order extends \yii\db\ActiveRecord
             'amount_coupon' => 'Amount Coupon',
             'amount_total' => 'Amount Total',
             'amount_paid' => 'Amount Paid',
+            'is_forward' => 'Is Forward',
         ];
     }
 

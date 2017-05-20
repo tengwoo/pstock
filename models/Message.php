@@ -14,6 +14,7 @@ use Yii;
  * @property string $time_last
  * @property string $title
  * @property string $remark
+ * @property integer $type
  */
 class Message extends \yii\db\ActiveRecord
 {
@@ -31,7 +32,7 @@ class Message extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'is_read'], 'integer'],
+            [['user_id', 'is_read', 'type'], 'integer'],
             [['time_created', 'time_last'], 'safe'],
             [['remark'], 'string'],
             [['title'], 'string', 'max' => 255],
@@ -51,6 +52,7 @@ class Message extends \yii\db\ActiveRecord
             'time_last' => 'Time Last',
             'title' => 'Title',
             'remark' => 'Remark',
+            'type' => 'Type',
         ];
     }
 

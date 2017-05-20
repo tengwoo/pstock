@@ -17,6 +17,7 @@ use Yii;
  * @property string $balance
  * @property string $balance_lock
  * @property string $balance_should
+ * @property integer $is_forward
  */
 class UserFinance extends \yii\db\ActiveRecord
 {
@@ -34,7 +35,7 @@ class UserFinance extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'level_win', 'level_lose'], 'integer'],
+            [['user_id', 'level_win', 'level_lose', 'is_forward'], 'integer'],
             [['ratio_deposit', 'ratio_tax', 'balance', 'balance_lock', 'balance_should'], 'number'],
             [['name'], 'string', 'max' => 32],
         ];
@@ -56,6 +57,7 @@ class UserFinance extends \yii\db\ActiveRecord
             'balance' => 'Balance',
             'balance_lock' => 'Balance Lock',
             'balance_should' => 'Balance Should',
+            'is_forward' => 'Is Forward',
         ];
     }
 
