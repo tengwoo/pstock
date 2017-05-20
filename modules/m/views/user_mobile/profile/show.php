@@ -24,9 +24,10 @@ $this->title = '会员中心';
 
             <div class="media">
                 <div class="media-left">
-                    <?= Html::img($profile->getAvatarUrl(160), [
+                    <?= Html::img($profile->getAvatarUrl(80), [
                         'class' => 'media-object img-rounded',
                         'alt' => $profile->user->username,
+                        'width' => 80,
                     ]) ?>
                 </div>
                 <div class="media-body">
@@ -61,63 +62,61 @@ $this->title = '会员中心';
                 <?php endif; ?>
             </div>
 
-            <div class="mb15 row fund-btns">
-                <div class="col-sm-6 col-xs-6 fund-btn">
-                    <a href="<?=\yii\helpers\Url::to(['/m/recharge']) ?>" class="text-success">
-                        <em class="glyphicon glyphicon-log-in mr5"></em>
-                        我的充值</a></div>
-                <div class="col-sm-6 col-xs-6 fund-btn">
-                    <a href="<?=\yii\helpers\Url::to(['/m/withdraw']) ?>" class="text-danger">
-                        <em class="glyphicon glyphicon-log-out mr5"></em>
-                        我的取现</a></div>
+            <div class="mb15 btn-group fund-btns">
+                <a href="<?= \yii\helpers\Url::to(['/m/recharge']) ?>" class="btn-success btn btn-default btn-xs fund-btn">
+                    <em class="glyphicon glyphicon-log-in mr5"></em>
+                    我的充值</a>
+                <a href="<?= \yii\helpers\Url::to(['/m/withdraw']) ?>" class="btn-danger btn btn-default btn-xs fund-btn">
+                    <em class="glyphicon glyphicon-log-out mr5"></em>
+                    我的取现</a>
             </div>
 
-            <div class="row">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="<?=\yii\helpers\Url::to(['/m/fund']) ?>">
-                            <em class="glyphicon glyphicon-yen list-icon"></em>
-                            <span>资金明细</span>
-                            <em class="glyphicon glyphicon-menu-right list-arrow"></em>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="<?=\yii\helpers\Url::to(['/m/message']) ?>">
-                            <em class="glyphicon glyphicon-info-sign list-icon"></em>
-                            <span>消息中心</span>
-                            <em class="glyphicon glyphicon-menu-right list-arrow"></em>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="<?=\yii\helpers\Url::to(['/m/rebate']) ?>">
-                            <em class="glyphicon glyphicon-star list-icon"></em>
-                            <span>我的红包</span>
-                            <em class="glyphicon glyphicon-menu-right list-arrow"></em>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="<?=\yii\helpers\Url::to(['/m/profile/config']) ?>">
-                            <em class="glyphicon glyphicon-cog list-icon"></em>
-                            <span>安全设置</span>
-                            <em class="glyphicon glyphicon-menu-right list-arrow"></em>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="<?=\yii\helpers\Url::to(['/m/payment']) ?>">
-                            <em class="glyphicon glyphicon-credit-card list-icon"></em>
-                            <span>银行卡管理</span>
-                            <em class="glyphicon glyphicon-menu-right list-arrow"></em>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="<?=\yii\helpers\Url::to(['/m/help']) ?>">
-                            <em class="glyphicon glyphicon-question-sign list-icon"></em>
-                            <span>帮助中心</span>
-                            <em class="glyphicon glyphicon-menu-right list-arrow"></em>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="<?= \yii\helpers\Url::to(['/m/fund']) ?>">
+                        <em class="glyphicon glyphicon-yen list-icon"></em>
+                        <span>资金明细</span>
+                        <em class="glyphicon glyphicon-menu-right list-arrow"></em>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="<?= \yii\helpers\Url::to(['/m/message']) ?>">
+                        <em class="glyphicon glyphicon-info-sign list-icon"></em>
+                        <span>消息中心</span>
+                        <em class="glyphicon glyphicon-menu-right list-arrow"></em>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="<?= \yii\helpers\Url::to(['/m/rebate']) ?>">
+                        <em class="glyphicon glyphicon-star list-icon"></em>
+                        <span>我的红包</span>
+                        <em class="glyphicon glyphicon-menu-right list-arrow"></em>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="<?= \yii\helpers\Url::to(['/user/settings/account']) ?>">
+                        <em class="glyphicon glyphicon-cog list-icon"></em>
+                        <span>安全设置</span>
+                        <em class="glyphicon glyphicon-menu-right list-arrow"></em>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="<?= \yii\helpers\Url::to(['/m/payment']) ?>">
+                        <em class="glyphicon glyphicon-credit-card list-icon"></em>
+                        <span>银行卡管理</span>
+                        <em class="glyphicon glyphicon-menu-right list-arrow"></em>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="<?= \yii\helpers\Url::to(['/m/help']) ?>">
+                        <em class="glyphicon glyphicon-question-sign list-icon"></em>
+                        <span>帮助中心</span>
+                        <em class="glyphicon glyphicon-menu-right list-arrow"></em>
+                    </a>
+                </li>
+            </ul></div>
+
         </div>
     </div>
 </div>

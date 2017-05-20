@@ -147,10 +147,12 @@ a.desc:after {
 /**********/
 .fund-btns{
     text-align: center;
-    border: 1px solid #ddd;
-    border-width: 1px 0;
+    width: 100.14%;
+    /*border: 1px solid #ddd;*/
+    /*border-width: 1px 0;*/
 }
 .fund-btn {
+    width: 50%;
     font-size: 1.6rem;
     line-height:4rem;
 }

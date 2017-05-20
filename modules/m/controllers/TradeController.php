@@ -2,7 +2,7 @@
 
 namespace app\modules\m\controllers;
 
-class TradeController extends \yii\web\Controller
+class TradeController extends BaseController
 {
 
     public function actionFutures()
