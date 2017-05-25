@@ -64,4 +64,21 @@ class Stock extends \yii\db\ActiveRecord
     {
         return new StockQuery(get_called_class());
     }
+
+    public function getNameText(){
+        return "{$this->name}($this->code)";
+    }
+
+    // 错误代码则返回第一条
+    public static function oneStock($code){
+        $model = static::find()
+            ->filterWhere(['code' => $code])
+            ->limit(1)
+            ->orderBy('time_updated DESC')
+            ->one();
+
+        $model || $model = static::find()->limit(1)->orderBy('time_updated DESC')->one();
+
+        return $model;
+    }
 }

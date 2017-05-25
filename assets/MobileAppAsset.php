@@ -24,7 +24,7 @@ class MobileAppAsset extends AssetBundle
     ];
     public $js = [
         ['js/jquery.js', 'position' => View::POS_HEAD],
-        'https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js',
+        ['https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js', 'position' => View::POS_HEAD],
     ];
     public $depends = [
 //        'yii\web\YiiAsset',
